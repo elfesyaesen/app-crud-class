@@ -1,5 +1,5 @@
 <?php 
-    class BestCrudClass
+    class PhpYardimlasmaGrubu
     {
         /* VERİTABANI BAĞLANTISI İÇİN GEREKLİ PARAMETRELER TANIMLANDI.. */
         protected $db = null;
