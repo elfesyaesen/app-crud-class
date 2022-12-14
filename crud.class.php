@@ -6,7 +6,7 @@
         protected $host = 'localhost';
         protected $user = 'root';
         protected $pass = '';
-        protected $dbname   = 'test';
+        protected $dbname   = 'crud';
         protected $charset = 'utf8';
         protected $options = [
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
@@ -22,5 +22,20 @@
             } catch (\PDOException $e) {
              throw new \PDOException($e->getMessage(), (int)$e->getCode());
             }
-        } 
+        }
+        /* VERİTABANINDAN TOPLU , KOŞULSUZ VERİ ALMAK */
+        public function pdoMultipleSelect(string $sql){
+            $query = $this->pdo->query($sql);
+            $response = $query->fetchAll(PDO::FETCH_OBJ);
+            if($response) return $response; else return false;
+        }
+        /* VERİTABANINDAN TOPLU , KOŞULLU VERİ ALMAK */
+        public function pdoSelect(string $sql,array $params){
+            $prepare = $this->pdo->prepare($sql);
+            $prepare->execute($params);
+            $response = $prepare->fetchAll(PDO::FETCH_OBJ);
+            if($response) return $response; else return false;
+        }
+
+
     }
