@@ -36,6 +36,14 @@
             $response = $prepare->fetchAll(PDO::FETCH_OBJ);
             if($response) return $response; else return false;
         }
+        /* TEKİL VERİ ALMAK */
+        public function pdoSingleSelect(string $sql,array $params){
+            $prepare = $this->pdo->prepare($sql);
+            $prepare->execute($params);
+            $response = $prepare->fetch(PDO::FETCH_OBJ);
+            if($response) return $response; else return false;
+        }
+
 
 
     }
