@@ -155,6 +155,14 @@ class PhpYardimlasmaGrubu {
         }
     return $text;
     }
+    //metni ters çevirip yazar
+public function mbStrrev($str){
+    $r = '';
+    for ($i = mb_strlen($str); $i>=0; $i--) {
+        $r .= mb_substr($str, $i, 1);
+    }
+    return $r;
+}
     //post ve get değerlerinin boş olup olmadığını kontrol eder , dizi veya tekli veriyi kontrol eder
     public function pdoEmpty($variable)
     {
