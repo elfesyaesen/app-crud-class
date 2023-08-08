@@ -89,6 +89,19 @@ class PhpYardimlasmaGrubu
             return false;
         }
     }
+    //tarih fonksiyonu
+    public function getDate()
+    {
+        return date("Y.m.d H:i:s");
+    }
+    //metin kısaltma
+    public function shortenText($text, $maxLength, $suffix = '...') {
+        if (strlen($text) > $maxLength) {
+            $shortenedText = substr($text, 0, $maxLength - strlen($suffix)) . $suffix;
+            return $shortenedText;
+        }
+    return $text;
+    }
     //input boş mu kontrol
     public function pdoEmpty($variable)
     {
@@ -204,8 +217,4 @@ class PhpYardimlasmaGrubu
         }
     }
 
-    public function getDate()
-    {
-        return date("Y.m.d H:i:s");
-    }
 }
